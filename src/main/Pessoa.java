@@ -1,6 +1,7 @@
 package main;
 
 import java.util.Date;
+import java.util.Random;
 
 public abstract class Pessoa {
 	
@@ -8,7 +9,19 @@ public abstract class Pessoa {
 	private int idade;
 	private Date dataNascimento;
 	
-	public abstract EmocaoEnum getEmocao();
+	public EmocaoEnum getEmocao() {
+		Random gerador = new Random();
+		switch (gerador.nextInt(2)) {
+			case 0:		
+				return EmocaoEnum.BEM;
+				
+			case 1:
+				return EmocaoEnum.MAL;			
+				
+			default:
+				return EmocaoEnum.BEM;
+		}
+	}
 
 	public String getNome() {
 		return nome;
